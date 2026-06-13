@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Investment Forecast</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Investment Forecast</h1>
+      <p class="subtitle">Онлайн приложение за Android, генерирано от Excel данни</p>
+    </div>
+    <button id="installBtn" class="secondary hidden">Инсталирай на телефона</button>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h2>Общи 4Y стойности</h2>
+      <div class="summary-grid">
+        <div class="metric low"><span>Low</span><strong id="totalLow">-</strong></div>
+        <div class="metric base"><span>Base</span><strong id="totalBase">-</strong></div>
+        <div class="metric high"><span>High</span><strong id="totalHigh">-</strong></div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="section-title-row"><h2>Разпределение по сценарий</h2><select id="scenarioSelect"><option value="base" selected>Base</option><option value="low">Low</option><option value="high">High</option></select></div>
+      <div id="barsContainer" class="bars"></div>
+    </section>
+    <section class="card">
+      <div class="section-title-row"><h2>Инвестиции</h2><input id="searchInput" type="search" placeholder="Търси инвестиция..." /></div>
+      <div id="investmentList" class="investment-list"></div>
+    </section>
+    <section class="card">
+      <h2>Solana reference</h2>
+      <div id="solanaBlock" class="solana-grid"></div>
+      <p class="muted">Solana е показана само като справка и не участва в total/pie изчисленията, защото липсва quantity/position size в изходния файл.</p>
+    </section>
+  </main>
+  <template id="investmentTemplate">
+    <article class="investment-item">
+      <button class="accordion-btn">
+        <div class="investment-main"><strong class="name"></strong><span class="group"></span></div>
+        <div class="investment-main right"><span class="current"></span><span class="hint">натисни за детайли</span></div>
+      </button>
+      <div class="accordion-content hidden">
+        <div class="details-grid">
+          <div><span>Тип</span><strong class="type"></strong></div>
+          <div><span>Месечно допълване</span><strong class="monthly"></strong></div>
+          <div><span>4Y Low</span><strong class="lowValue"></strong></div>
+          <div><span>4Y Base</span><strong class="baseValue"></strong></div>
+          <div><span>4Y High</span><strong class="highValue"></strong></div>
+          <div><span>Base share</span><strong class="baseShare"></strong></div>
+          <div><span>Low P/L</span><strong class="lowPL"></strong></div>
+          <div><span>Base P/L</span><strong class="basePL"></strong></div>
+          <div><span>High P/L</span><strong class="highPL"></strong></div>
+        </div>
+      </div>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>

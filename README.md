@@ -1,2 +1,3 @@
-# investment-forecast-app1
-Investment forecast web app
+# Investment Forecast Web App
+
+Качи файловете в GitHub Pages или Netlify.
